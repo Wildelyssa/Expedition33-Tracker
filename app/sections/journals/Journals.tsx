@@ -1,7 +1,6 @@
-import { Heading } from "@/app/components/Index";
+import VerticalProgress from "../components/progress/VerticalProgress";
 import SectionWrapper from "../components/SectionWrapper";
-import { expeditionLocations, journals } from "../data/progressData";
-import JournalsProgress from "./JournalsProgress";
+import { journals } from "../data/progressData";
 
 const Journals = ({
   title,
@@ -23,7 +22,7 @@ const Journals = ({
       {/* map locations from data */}
       {/* onClick=> set state to completed and add to the completed count */}
       {journals.map((journal, i) => (
-        <JournalsProgress key={i} name={journal} />
+        <VerticalProgress key={i} name={journal} completed={false} />
       ))}
     </SectionWrapper>
   );

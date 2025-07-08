@@ -1,14 +1,19 @@
 import { IconCheck } from "@/app/components/Icons/Index";
 import { cn } from "@/app/lib/utils";
 
-const LocationProgress = ({ name }: { name: string }) => {
-  const completed = false;
+const VerticalProgress = ({
+  name,
+  completed,
+}: {
+  name: string;
+  completed: boolean;
+}) => {
   return (
     <div
       className={cn(
         "max-w-[9%] min-w-[9%] aspect-square border border-gray-500 rounded-md flex flex-col items-center justify-end py-4 px-2 text-center bg-neutral-900 leading-tight gap-2",
         completed &&
-          "shadow-[inset_0_0_12px_2px_rgba(255,215,0,0.6)] border-yellow-400/70"
+          "shadow-[inset_0_0_22px_2px_rgba(255,215,0,0.3)] border-yellow-400/70"
       )}
     >
       {name}
@@ -24,4 +29,4 @@ const LocationProgress = ({ name }: { name: string }) => {
   );
 };
 
-export default LocationProgress;
+export default VerticalProgress;

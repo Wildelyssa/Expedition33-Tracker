@@ -3,6 +3,8 @@ import Navigation from "./sections/navigation/Navigation";
 import Progress from "./sections/Progress";
 import { totals } from "./sections/data/progressData";
 import Journals from "./sections/journals/Journals";
+import Pictos from "./sections/pictos/Pictos";
+import Weapons from "./sections/weapons/Weapons";
 
 export default function Home() {
   return (
@@ -22,7 +24,12 @@ export default function Home() {
             details="Total number of Journals Found"
             total={totals.journals}
           />
-          {/* <Weapons /> */}
+          <Pictos
+            title="Pictos"
+            details="Total number of Pictos Found"
+            total={193}
+          />
+          <Weapons title="Weapons" details="Total Weapons Found" total={1} />
         </Progress>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
