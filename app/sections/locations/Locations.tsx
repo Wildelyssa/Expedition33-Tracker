@@ -1,8 +1,7 @@
 import { Heading } from "@/app/components/Index";
 import SectionWrapper from "../components/SectionWrapper";
-import LocationProgress from "../components/progress/VerticalProgress";
 import { expeditionLocations } from "../data/progressData";
-import VerticalProgress from "../components/progress/VerticalProgress";
+import ProgressComponent from "../components/progress/ProgressComponent";
 
 const Locations = ({
   title,
@@ -30,7 +29,11 @@ const Locations = ({
         </Heading>
         <div className="flex flex-row gap-2 flex-wrap">
           {expeditionLocations.primary.map((primaryLocation, i) => (
-            <VerticalProgress key={i} name={primaryLocation} completed={true} />
+            <ProgressComponent
+              key={i}
+              name={primaryLocation}
+              completed={true}
+            />
           ))}
         </div>
       </div>
@@ -40,7 +43,7 @@ const Locations = ({
         </Heading>
         <div className="flex flex-row flex-wrap gap-2">
           {expeditionLocations.sub.map((primaryLocation, i) => (
-            <LocationProgress
+            <ProgressComponent
               key={i}
               name={primaryLocation}
               completed={false}

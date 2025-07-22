@@ -1,4 +1,4 @@
-import VerticalProgress from "../components/progress/VerticalProgress";
+import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
 
 const Pictos = ({
@@ -17,7 +17,7 @@ const Pictos = ({
       details={details}
       total={total}
     >
-      <VerticalProgress name="pictos name" completed={true} />
+      <ProgressComponent name="pictos name" completed={true} />
     </SectionWrapper>
   );
 };

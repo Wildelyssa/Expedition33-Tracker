@@ -1,4 +1,4 @@
-import VerticalProgress from "../components/progress/VerticalProgress";
+import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
 import { journals } from "../data/progressData";
 
@@ -22,7 +22,7 @@ const Journals = ({
       {/* map locations from data */}
       {/* onClick=> set state to completed and add to the completed count */}
       {journals.map((journal, i) => (
-        <VerticalProgress key={i} name={journal} completed={false} />
+        <ProgressComponent key={i} name={journal} completed={false} />
       ))}
     </SectionWrapper>
   );
