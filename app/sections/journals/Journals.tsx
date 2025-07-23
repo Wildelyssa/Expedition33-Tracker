@@ -1,6 +1,8 @@
+"use client";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
 import { journals } from "../data/progressData";
+import { useState } from "react";
 
 const Journals = ({
   title,
@@ -11,7 +13,17 @@ const Journals = ({
   details: string;
   total: number;
 }) => {
-  // on click=> set as completed and add to completed count
+  const [completedJournals, setCompletedJournals] = useState<
+    Record<string, boolean>
+  >({});
+
+  const toggleCompleted = (name: string) => {
+    setCompletedJournals((prev) => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
+
   return (
     <SectionWrapper
       containerClasses="gap-8 flex flex-row gap-2 flex-wrap"
@@ -19,10 +31,14 @@ const Journals = ({
       details={details}
       total={total}
     >
-      {/* map locations from data */}
       {/* onClick=> set state to completed and add to the completed count */}
       {journals.map((journal, i) => (
-        <ProgressComponent key={i} name={journal} completed={false} />
+        <ProgressComponent
+          key={i}
+          name={journal.name}
+          completed={!!completedJournals[journal.name]}
+          onClick={() => toggleCompleted(journal.name)}
+        />
       ))}
     </SectionWrapper>
   );

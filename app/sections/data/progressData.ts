@@ -1,8 +1,18 @@
 export type IProgressName =
-  | IPrimaryLocations
-  | ISubLocations
-  | IJournals
+  | IPrimaryLocation["name"]
+  | ISubLocation["name"]
+  | IJournal["name"]
   | IWeapon["name"];
+
+export type IPrimaryLocation = {
+  id: string;
+  name: IPrimaryLocations;
+};
+
+export type ISubLocation = {
+  id: string;
+  name: ISubLocations;
+};
 
 export type IPrimaryLocations =
   | "Lumiere"
@@ -66,10 +76,14 @@ export type ISubLocations =
   | "Yellow Harvest";
 
 export type ILocationsMap = {
-  primary: IPrimaryLocations[];
-  sub: ISubLocations[];
+  primary: IPrimaryLocation[];
+  sub: ISubLocation[];
 };
 
+export type IJournal = {
+  name: IJournals;
+  id: string;
+};
 export type IJournals =
   | "Renoir"
   | "Simon"
@@ -120,115 +134,114 @@ export type IJournals =
 
 export const expeditionLocations: ILocationsMap = {
   primary: [
-    "Lumiere",
-    "Spring Meadows",
-    "Flying Waters",
-    "Ancient Sanctuary",
-    "Gestral Village",
-    `Esquie's Nest`,
-    "Stone Wall Cliffs",
-    "Forgotten BattleField",
-    `Monoco's Station`,
-    "Old Lumiere",
-    "Visages",
-    "Sirene",
-    "The Monolith",
-    "The Manor",
+    { name: "Lumiere", id: "1" },
+    { name: "Spring Meadows", id: "2" },
+    { name: "Flying Waters", id: "3" },
+    { name: "Ancient Sanctuary", id: "4" },
+    { name: "Gestral Village", id: "5" },
+    { name: `Esquie's Nest`, id: "6" },
+    { name: "Stone Wall Cliffs", id: "7" },
+    { name: "Forgotten BattleField", id: "8" },
+    { name: `Monoco's Station`, id: "9" },
+    { name: "Old Lumiere", id: "10" },
+    { name: "Visages", id: "11" },
+    { name: "Sirene", id: "12" },
+    { name: "The Monolith", id: "13" },
+    { name: "The Manor", id: "14" },
   ],
   sub: [
-    "Abbest Cave",
-    "Ancient Gestral City",
-    `Blade's Graveyard`,
-    "Coastal Cave",
-    "Crimson Forest",
-    "Crushing Cavern",
-    "Dark Gestral Arena",
-    "Dark Shores",
-    "Endless Night Sanctuary",
-    "Endless Tower",
-    "Esoteric Ruins",
-    "Falling Leaves",
-    "Floating Cemetary",
-    "Flying Casino",
-    "Flying Manor",
-    "Frozen Hearts",
-    "Gestral Beach",
-    "Hidden Gestral Arena",
-    "Isle Of The Eyes",
-    "Lost Woods",
-    "Painting Workshop",
-    "Red Woods",
-    `Renoir's Den`,
-    "Sacred River",
-    "Sinister Cave",
-    "Sirene's Dress",
-    "Sky Island",
-    "Stone Quarry",
-    "Stone Wave Cliffs Cave",
-    "Sunless Cliffs",
-    "The Abyss",
-    "The Canvas",
-    "The Carousel",
-    "The Chosen Path",
-    "The Crows",
-    "The Fountain",
-    "The Meadows",
-    "The Reacher",
-    "The Small Bourgeon",
-    "Twilight Quarry",
-    "White Sands",
-    "White Tree",
-    "Yellow Harvest",
+    { name: "Abbest Cave", id: "1" },
+    { name: "Ancient Gestral City", id: "2" },
+    { name: `Blade's Graveyard`, id: "3" },
+    { name: "Coastal Cave", id: "4" },
+    { name: "Crimson Forest", id: "5" },
+    { name: "Crushing Cavern", id: "6" },
+    { name: "Dark Gestral Arena", id: "7" },
+    { name: "Dark Shores", id: "8" },
+    { name: "Endless Night Sanctuary", id: "9" },
+    { name: "Endless Tower", id: "10" },
+    { name: "Esoteric Ruins", id: "11" },
+    { name: "Falling Leaves", id: "12" },
+    { name: "Floating Cemetary", id: "13" },
+    { name: "Flying Casino", id: "14" },
+    { name: "Flying Manor", id: "15" },
+    { name: "Frozen Hearts", id: "16" },
+    { name: "Gestral Beach", id: "17" },
+    { name: "Hidden Gestral Arena", id: "18" },
+    { name: "Isle Of The Eyes", id: "19" },
+    { name: "Lost Woods", id: "20" },
+    { name: "Painting Workshop", id: "21" },
+    { name: "Red Woods", id: "22" },
+    { name: `Renoir's Den`, id: "23" },
+    { name: "Sacred River", id: "24" },
+    { name: "Sinister Cave", id: "25" },
+    { name: "Sirene's Dress", id: "26" },
+    { name: "Sky Island", id: "27" },
+    { name: "Stone Quarry", id: "28" },
+    { name: "Stone Wave Cliffs Cave", id: "29" },
+    { name: "Sunless Cliffs", id: "30" },
+    { name: "The Abyss", id: "31" },
+    { name: "The Canvas", id: "32" },
+    { name: "The Carousel", id: "33" },
+    { name: "The Chosen Path", id: "34" },
+    { name: "The Crows", id: "35" },
+    { name: "The Fountain", id: "36" },
+    { name: "The Meadows", id: "37" },
+    { name: "The Reacher", id: "38" },
+    { name: "The Small Bourgeon", id: "39" },
+    { name: "Twilight Quarry", id: "40" },
+    { name: "White Sands", id: "41" },
+    { name: "White Tree", id: "42" },
+    { name: "Yellow Harvest", id: "43" },
   ],
 };
 
-export const journals: IJournals[] = [
-  "Renoir",
-  "Simon",
-  "Survivor",
-  "Verso",
-  "Julie",
-  "Aline",
-  "34",
-  "35",
-  "36",
-  "37",
-  "38",
-  "39",
-  "40",
-  "41",
-  "42",
-  "43",
-  "44",
-  "45",
-  "46",
-  "47",
-  "48",
-  "49",
-  "50",
-  "51",
-  "52",
-  "53",
-  "54",
-  "55",
-  "56",
-  "57",
-  "58",
-  "59",
-  "60",
-  "61",
-  "62",
-  "63",
-  "64",
-  "65",
-  "66",
-  "67",
-  "68",
-  "69",
-  "70",
-  "78",
-  "81",
-  "84",
+export const journals: IJournal[] = [
+  { name: "Renoir", id: "1" },
+  { name: "Simon", id: "2" },
+  { name: "Survivor", id: "3" },
+  { name: "Verso", id: "4" },
+  { name: "Julie", id: "5" },
+  { name: "34", id: "6" },
+  { name: "35", id: "7" },
+  { name: "36", id: "9" },
+  { name: "37", id: "10" },
+  { name: "38", id: "11" },
+  { name: "39", id: "12" },
+  { name: "40", id: "13" },
+  { name: "41", id: "14" },
+  { name: "42", id: "15" },
+  { name: "43", id: "16" },
+  { name: "44", id: "17" },
+  { name: "45", id: "18" },
+  { name: "46", id: "19" },
+  { name: "47", id: "20" },
+  { name: "48", id: "21" },
+  { name: "49", id: "22" },
+  { name: "50", id: "23" },
+  { name: "51", id: "24" },
+  { name: "52", id: "25" },
+  { name: "53", id: "26" },
+  { name: "54", id: "27" },
+  { name: "55", id: "28" },
+  { name: "56", id: "29" },
+  { name: "57", id: "30" },
+  { name: "58", id: "31" },
+  { name: "59", id: "32" },
+  { name: "60", id: "33" },
+  { name: "61", id: "34" },
+  { name: "62", id: "35" },
+  { name: "63", id: "36" },
+  { name: "64", id: "37" },
+  { name: "65", id: "38" },
+  { name: "66", id: "39" },
+  { name: "67", id: "40" },
+  { name: "68", id: "41" },
+  { name: "69", id: "42" },
+  { name: "70", id: "43" },
+  { name: "78", id: "44" },
+  { name: "81", id: "45" },
+  { name: "84", id: "46" },
 ];
 
 export type IWeapon = {

@@ -1,7 +1,9 @@
+"use client";
 import { Heading } from "@/app/components/Index";
 import SectionWrapper from "../components/SectionWrapper";
 import { expeditionLocations } from "../data/progressData";
 import ProgressComponent from "../components/progress/ProgressComponent";
+import { useState } from "react";
 
 const Locations = ({
   title,
@@ -12,7 +14,17 @@ const Locations = ({
   details: string;
   total: number;
 }) => {
-  // on click=> set as completed and add to completed count
+  const [completedLocations, setCompletedLocations] = useState<
+    Record<string, boolean>
+  >({});
+
+  const toggleCompleted = (name: string) => {
+    setCompletedLocations((prev) => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
+
   return (
     <SectionWrapper
       containerClasses="gap-8"
@@ -20,19 +32,17 @@ const Locations = ({
       details={details}
       total={total}
     >
-      {/* map locations from data */}
-      {/* onClick=> set state to completed and add to the completed count */}
-      {/* if clicked again => set state to not completed and minus one from the count */}
       <div className="flex flex-col gap-2">
         <Heading as="h3" size="xs">
           Primary Locations
         </Heading>
         <div className="flex flex-row gap-2 flex-wrap">
-          {expeditionLocations.primary.map((primaryLocation, i) => (
+          {expeditionLocations.primary.map((location, i) => (
             <ProgressComponent
               key={i}
-              name={primaryLocation}
-              completed={true}
+              name={location.name}
+              completed={!!completedLocations[location.name]}
+              onClick={() => toggleCompleted(location.name)}
             />
           ))}
         </div>
@@ -42,11 +52,12 @@ const Locations = ({
           Sub Locations
         </Heading>
         <div className="flex flex-row flex-wrap gap-2">
-          {expeditionLocations.sub.map((primaryLocation, i) => (
+          {expeditionLocations.sub.map((location, i) => (
             <ProgressComponent
               key={i}
-              name={primaryLocation}
-              completed={false}
+              name={location.name}
+              completed={!!completedLocations[location.name]}
+              onClick={() => toggleCompleted(location.name)}
             />
           ))}
         </div>
