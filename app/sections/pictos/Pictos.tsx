@@ -1,5 +1,6 @@
 import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
+import { pictos } from "../data/progressData";
 
 const Pictos = ({
   title,
@@ -17,7 +18,19 @@ const Pictos = ({
       details={details}
       total={total}
     >
-      <ProgressComponent name="pictos name" completed={true} />
+      <div className="flex flex-row gap-2 flex-wrap">
+        {pictos.map((item, i) => (
+          <ProgressComponent
+            key={`${item.name}-${i}`}
+            name={item.name}
+            completed={false}
+            image={`/images/pictos/${item.name
+              .replaceAll(" ", "-")
+              .replace("'", "")
+              .toLocaleLowerCase()}.png`}
+          />
+        ))}
+      </div>
     </SectionWrapper>
   );
 };
