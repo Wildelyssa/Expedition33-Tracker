@@ -9,20 +9,30 @@ I am a completionist and want to do ALL the things! If you are too, then this pr
 ## Completed so far: 
 
 ### Data:
+
 ✅ Weapons data and images added
+
 ✅ Pictos data and images added
+
 ✅ Locations data and images added
+
 ✅ Journals data added
 
 ### Functionality: 
+
 ✅ Check off each item you have collected/completed
+
 ✅ See a count per section and sub-section of items you hae completed/collected
 
 ## Coming soon:
 ⭐️ Add additional missing data for quests, collectibles, bosses, etc to be a full completionist list
+
 ⭐️ Implement firebase to enable saving progress
+
 ⭐️ Login feature to save your progress
+
 ⭐️ Add animated progress bars to ear section
+
 ⭐️ Refine and complete styling, design, and feel of elements for each section and overall
 
 
