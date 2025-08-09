@@ -1,6 +1,6 @@
 ## Expedition 33 Tracker
 
-This is a checklist for the game Expedition 33 (Clair Obscur) including locations, weapons, pictos, and eventually all collectibles, quests, and bosses. 
+This is a checklist for the game Clair Obscur: Expedition 33 including locations, weapons, pictos, and eventually all collectibles, quests, and bosses. 
 
 This is a great game with an amazing story, and fun combat which features turn-based and real-time elements. 
 
