@@ -1,9 +1,16 @@
 "use client";
-import { Heading } from "@/app/components/Index";
 import SectionWrapper from "../components/SectionWrapper";
-import { expeditionLocations } from "../data/progressData";
+import {
+  expeditionLocations,
+  IPrimaryLocation,
+  ISubLocation,
+} from "../data/progressData";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import { useState } from "react";
+import { getCompletedCount } from "@/app/lib/lib";
+import SubHeaderWithCount from "../components/progress/SubHeaderWithCount";
+
+// to do=> streamline the code in this section to avoid repetition- maybe as per weapons section for consistency
 
 const Locations = ({
   title,
@@ -14,16 +21,38 @@ const Locations = ({
   details: string;
   total: number;
 }) => {
-  const [completedLocations, setCompletedLocations] = useState<
-    Record<string, boolean>
-  >({});
+  const [primaryLocationsProgress, setPrimaryLocationsProgress] = useState<
+    IPrimaryLocation[]
+  >(expeditionLocations.primary);
 
-  const toggleCompleted = (name: string) => {
-    setCompletedLocations((prev) => ({
-      ...prev,
-      [name]: !prev[name],
-    }));
+  const [subLocationsProgress, setSubLocationsProgress] = useState<
+    ISubLocation[]
+  >(expeditionLocations.sub);
+
+  const handleToggleCompletedPrimary = (id: string) => {
+    setPrimaryLocationsProgress((prev) =>
+      prev.map((location) =>
+        location.id === id
+          ? { ...location, completed: !location.completed }
+          : location
+      )
+    );
   };
+
+  const handleToggleCompletedSub = (id: string) => {
+    setSubLocationsProgress((prev) =>
+      prev.map((location) =>
+        location.id === id
+          ? { ...location, completed: !location.completed }
+          : location
+      )
+    );
+  };
+
+  const allLocationsArray = [
+    ...primaryLocationsProgress,
+    ...subLocationsProgress,
+  ];
 
   return (
     <SectionWrapper
@@ -31,33 +60,36 @@ const Locations = ({
       title={title}
       details={details}
       total={total}
+      numberCompleted={getCompletedCount(allLocationsArray)}
     >
       <div className="flex flex-col gap-2">
-        <Heading as="h3" size="xs">
-          Primary Locations
-        </Heading>
+        <SubHeaderWithCount
+          title="Primary Locations"
+          progressArray={primaryLocationsProgress}
+        />
         <div className="flex flex-row gap-2 flex-wrap">
-          {expeditionLocations.primary.map((location, i) => (
+          {primaryLocationsProgress.map((location) => (
             <ProgressComponent
-              key={i}
+              key={location.id}
               name={location.name}
-              completed={!!completedLocations[location.name]}
-              onClick={() => toggleCompleted(location.name)}
+              completed={location.completed}
+              onClick={() => handleToggleCompletedPrimary(location.id)}
             />
           ))}
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <Heading as="h3" size="xs">
-          Sub Locations
-        </Heading>
+        <SubHeaderWithCount
+          title="Sub Locations"
+          progressArray={subLocationsProgress}
+        />
         <div className="flex flex-row flex-wrap gap-2">
-          {expeditionLocations.sub.map((location, i) => (
+          {subLocationsProgress.map((location) => (
             <ProgressComponent
-              key={i}
+              key={location.id}
               name={location.name}
-              completed={!!completedLocations[location.name]}
-              onClick={() => toggleCompleted(location.name)}
+              completed={location.completed}
+              onClick={() => handleToggleCompletedSub(location.id)}
             />
           ))}
         </div>

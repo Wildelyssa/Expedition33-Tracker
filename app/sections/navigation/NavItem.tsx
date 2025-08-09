@@ -1,6 +1,6 @@
 import { Button } from "@/app/components/Index";
-import { ISectionDetails } from "@/app/lib/lib";
 import Link from "next/link";
+import { ISectionDetails } from "../data/progressData";
 
 const NavItem = ({
   id,

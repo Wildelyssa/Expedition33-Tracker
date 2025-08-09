@@ -1,4 +1,4 @@
-import { sections } from "@/app/lib/lib";
+import { sections } from "../data/progressData";
 import NavItem from "./NavItem";
 
 const Navigation = () => {
