@@ -1,18 +1,5 @@
-export type SectionId = "locations" | "weapons";
+import { IProgressArray } from "../sections/data/progressData";
 
-export type ISectionDetails = {
-  id: string;
-  text: string;
+export const getCompletedCount = (array: IProgressArray) => {
+  return array.filter((item) => item.completed).length;
 };
-
-function createSection(id: SectionId): ISectionDetails {
-  return {
-    id,
-    text: id.charAt(0).toUpperCase() + id.slice(1),
-  };
-}
-
-export const sections: ISectionDetails[] = [
-  createSection("locations"),
-  createSection("weapons"),
-];

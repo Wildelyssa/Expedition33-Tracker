@@ -18,8 +18,6 @@ const ProgressComponent = ({
   image?: string;
   onClick: () => void;
 }) => {
-  console.log(onClick, "click");
-
   return (
     <div
       onClick={onClick}
@@ -37,7 +35,7 @@ const ProgressComponent = ({
         </div>
       )}
 
-      <Text>{name}</Text>
+      <Text>{capitalizeAll(name)}</Text>
       <CheckMark completed={completed} />
     </div>
   );

@@ -1,7 +1,8 @@
 "use client";
+import { getCompletedCount } from "@/app/lib/lib";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
-import { journals } from "../data/progressData";
+import { IJournal, journals } from "../data/progressData";
 import { useState } from "react";
 
 const Journals = ({
@@ -13,15 +14,17 @@ const Journals = ({
   details: string;
   total: number;
 }) => {
-  const [completedJournals, setCompletedJournals] = useState<
-    Record<string, boolean>
-  >({});
+  const [journalsProgress, setJournalsProgress] =
+    useState<IJournal[]>(journals);
 
-  const toggleCompleted = (name: string) => {
-    setCompletedJournals((prev) => ({
-      ...prev,
-      [name]: !prev[name],
-    }));
+  const handleToggleCompleted = (id: string) => {
+    setJournalsProgress((prev) =>
+      prev.map((journal) =>
+        journal.id === id
+          ? { ...journal, completed: !journal.completed }
+          : journal
+      )
+    );
   };
 
   return (
@@ -30,14 +33,14 @@ const Journals = ({
       title={title}
       details={details}
       total={total}
+      numberCompleted={getCompletedCount(journalsProgress)}
     >
-      {/* onClick=> set state to completed and add to the completed count */}
-      {journals.map((journal, i) => (
+      {journalsProgress.map((journal, i) => (
         <ProgressComponent
           key={i}
           name={journal.name}
-          completed={!!completedJournals[journal.name]}
-          onClick={() => toggleCompleted(journal.name)}
+          completed={journal.completed}
+          onClick={() => handleToggleCompleted(journal.id)}
         />
       ))}
     </SectionWrapper>
