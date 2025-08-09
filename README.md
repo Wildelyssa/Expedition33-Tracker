@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Expedition 33 Tracker
+
+This is a checklist for the game Expedition 33 (Clair Obscur) including locations, weapons, pictos, and eventually all collectibles, quests, and bosses. 
+
+This is a great game with an amazing story, and fun combat which features turn-based and real-time elements. 
+
+I am a completionist and want to do ALL the things! If you are too, then this project wil be for you once it is a bit further along.
+
+## Completed so far: 
+
+### Data:
+✅ Weapons data and images added
+✅ Pictos data and images added
+✅ Locations data and images added
+✅ Journals data added
+
+### Functionality: 
+✅ Check off each item you have collected/completed
+✅ See a count per section and sub-section of items you hae completed/collected
+
+## Coming soon:
+⭐️ Add additional missing data for quests, collectibles, bosses, etc to be a full completionist list
+⭐️ Implement firebase to enable saving progress
+⭐️ Login feature to save your progress
+⭐️ Add animated progress bars to ear section
+⭐️ Refine and complete styling, design, and feel of elements for each section and overall
+
 
 ## Getting Started
 
