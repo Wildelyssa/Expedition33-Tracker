@@ -22,7 +22,7 @@ const ProgressComponent = ({
     <div
       onClick={onClick}
       className={cn(
-        "w-[216px] grow border border-gray-500 rounded-md flex flex-col items-center justify-center p-4 text-center bg-neutral-900 leading-tight gap-2 hover hover:cursor-pointer hover:border-yellow-400/70",
+        "w-[216px] grow border border-gray-500 rounded-md flex flex-col items-center justify-center p-4 text-center bg-neutral-900/75 leading-tight gap-2 hover hover:cursor-pointer hover:border-yellow-400/70",
         completed &&
           "shadow-[inset_0_0_22px_2px_rgba(255,215,0,0.3)] border-yellow-400/70",
         className
