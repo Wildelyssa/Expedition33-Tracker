@@ -37,6 +37,7 @@ const Journals = ({
     >
       {journalsProgress.map((journal, i) => (
         <ProgressComponent
+          variant="journal"
           key={i}
           name={journal.name}
           completed={journal.completed}

@@ -70,6 +70,7 @@ const Locations = ({
         <div className="flex flex-row gap-2 flex-wrap">
           {primaryLocationsProgress.map((location) => (
             <ProgressComponent
+              variant="location"
               key={location.id}
               name={location.name}
               completed={location.completed}
@@ -86,6 +87,7 @@ const Locations = ({
         <div className="flex flex-row flex-wrap gap-2">
           {subLocationsProgress.map((location) => (
             <ProgressComponent
+              variant="location"
               key={location.id}
               name={location.name}
               completed={location.completed}

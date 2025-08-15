@@ -18,7 +18,7 @@ const SectionWrapper = ({
   numberCompleted: number;
 }) => {
   return (
-    <div className="p-4 rounded-md flex flex-col border border-yellow-500/40 gap-4 bg-black/90">
+    <div className="p-8 rounded-md flex flex-col gap-4 bg-dark-gray/75">
       <SectionHeader
         title={title}
         details={details}

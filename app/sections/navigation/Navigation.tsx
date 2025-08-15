@@ -13,7 +13,7 @@ const Navigation = () => {
         alt="Clair Obscur:Expedition 33"
       />
 
-      <div className="w-full flex flex-row gap-2 p-2 border border-yellow-300/40 rounded-md">
+      <div className="w-full flex flex-row gap-2 p-2 bg-dark-gray/75 rounded-md">
         {sections.map((item, i) => (
           <NavItem key={`${item.id}${i}`} id={item.id} text={item.text} />
         ))}

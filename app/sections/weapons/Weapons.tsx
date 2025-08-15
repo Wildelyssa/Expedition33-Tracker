@@ -79,6 +79,7 @@ const Weapons = ({
           <div className="flex flex-row gap-2 flex-wrap">
             {weaponProgress[key].map((weapon) => (
               <ProgressComponent
+                variant="weapon"
                 key={weapon.id}
                 name={weapon.name}
                 completed={weapon.completed}

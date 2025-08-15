@@ -37,8 +37,10 @@ const Pictos = ({
       <div className="flex flex-row gap-2 flex-wrap">
         {pictosProgress.map((item) => (
           <ProgressComponent
+            variant="pictos"
             key={item.id}
             name={item.name}
+            description={item.description}
             completed={item.completed}
             image={`/images/pictos/${item.name
               .replaceAll(" ", "-")

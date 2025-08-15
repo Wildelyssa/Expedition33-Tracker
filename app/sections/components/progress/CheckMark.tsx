@@ -11,12 +11,12 @@ const CheckMark = ({
   return (
     <div
       className={cn(
-        "flex min-w-[34px] aspect-square flex-col items-center justify-center border border-gray-700 rounded-md p-1",
-        completed && "bg-teal-600  border-teal-700",
+        "flex min-w-[80px] aspect-square flex-col items-center justify-center border border-white/20 rounded-md p-1",
+        completed && "bg-white/5",
         className
       )}
     >
-      {completed && <IconCheck />}
+      {completed && <IconCheck className="text-white w-16 h-16" />}
     </div>
   );
 };

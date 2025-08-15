@@ -11,7 +11,7 @@ const NavItem = ({
 }) => {
   return (
     <Link href={id}>
-      <Button>{text}</Button>
+      <Button variant="tabs">{text}</Button>
     </Link>
   );
 };

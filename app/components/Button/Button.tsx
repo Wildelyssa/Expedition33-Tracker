@@ -5,15 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { IconProps } from "../Icons/Index";
 import clsx from "clsx";
 import { cn } from "@/app/lib/utils";
-
+// to do=> decide on a design for buttons and style
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:hover:ring-0 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 select-none",
+  "inline-flex items-center justify-center rounded-md text-sm cursor-pointer font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:hover:ring-0 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 select-none",
   {
     variants: {
       variant: {
         primary:
-          "bg-black hover:bg-black hover:slate-800 hover:ring-1 hover:ring-offset-2 border border-yellow-300/40  shadow-gray text-white py-2 px-4 rounded inline-flex items-center gap-x-2",
+          "bg-gold-600 hover:bg-gold-500 hover:slate-800 hover:ring-1 hover:ring-offset-black hover:ring-offset-2 shadow-gray text-black py-2 px-4 rounded inline-flex items-center gap-x-2",
+        tabs: "border border-gold-600/50 bg-dark-gray hover:dark-grey/80 hover:ring-1 hover:ring-offset-black  shadow-gray text-gold-500 py-2 px-4 rounded inline-flex items-center gap-x-2",
       },
+
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
