@@ -21,7 +21,11 @@ const SubHeaderWithCount = ({
         </Heading>
         <Count completed={completed} total={total} />
       </div>
-      <ProgressBar completed={completed} total={total} />
+      <ProgressBar
+        barClassName="bg-gradient-to-b from-[#FFFBF5] to-[#C3BDB3]"
+        completed={completed}
+        total={total}
+      />
     </div>
   );
 };

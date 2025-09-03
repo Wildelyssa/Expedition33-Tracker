@@ -9,8 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black/80 z-10">
       <main className="flex flex-col gap-[32px] items-start w-[60%]">
-        {/* to do=> page header goes here with a cover image=> maybe cover background for whole page */}
-        {/* to dp=> navigation becomes sticky tabs section with intersection observer to scroll to correct section onClick */}
+        {/* to do=> navigation becomes sticky tabs section with intersection observer to scroll to correct section onClick */}
         <div className="flex flex-col gap-4 w-full z-10">
           <Navigation />
           <Locations

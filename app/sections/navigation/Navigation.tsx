@@ -8,11 +8,11 @@ const Navigation = () => {
     <div className="flex flex-col items-center gap-4">
       <Image
         src="/images/branding/game-logo.png"
-        width={500}
-        height={100}
         alt="Clair Obscur:Expedition 33"
+        width={500}
+        height={300}
+        className="drop-shadow-xl object-contain"
       />
-
       <div className="w-full flex flex-row gap-2 p-2 bg-dark-gray/75 rounded-md">
         {sections.map((item, i) => (
           <NavItem key={`${item.id}${i}`} id={item.id} text={item.text} />

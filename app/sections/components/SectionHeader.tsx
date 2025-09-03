@@ -6,11 +6,13 @@ const SectionHeader = ({
   details,
   total,
   numberCompleted,
+  barClassName,
 }: {
   title: string;
   details: string;
   total: number;
   numberCompleted: number;
+  barClassName?: string;
 }) => {
   return (
     <div className="flex flex-col gap-2">
@@ -21,7 +23,11 @@ const SectionHeader = ({
         </div>
         <Prose>{details}</Prose>
       </div>
-      <ProgressBar completed={numberCompleted} total={total} />
+      <ProgressBar
+        barClassName={barClassName}
+        completed={numberCompleted}
+        total={total}
+      />
     </div>
   );
 };
