@@ -44,7 +44,7 @@ const ProgressBar = ({
         {total !== undefined && completed !== undefined && (
           <div
             className={cn(
-              "absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row items-center gap-1 text-xs font-bold drop-shadow-[0_1px_1px_rgba(var(--color-black)/0.9)]",
+              "absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row items-center gap-1 text-xs font-bold drop-shadow-[0_1px_1px_rgba(0, 0, 0, 0.9)]",
               textClassName
             )}
           >

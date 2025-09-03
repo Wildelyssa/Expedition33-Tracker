@@ -4,7 +4,9 @@ import { Prose, Text } from "@/app/components/Index";
 import CheckMark from "./CheckMark";
 import { IProgressName } from "../../types/types";
 
-// to do => add conditional styling per category- consider separating out the component if it becomes too complex
+// To Do=> finish styling and colours for completed/not completed
+// => add conditional image sizes per category and make check boxes scale/make them smaller
+// => progress containers to be smaller overall where needed
 
 const ProgressComponent = ({
   variant,
@@ -30,7 +32,7 @@ const ProgressComponent = ({
         "grow border border-white/20 rounded-md flex flex-row items-center justify-between  p-2 text-center bg-dark-gray/95 leading-tight gap-4 hover hover:cursor-pointer hover:border-white/60",
         variant === "weapon" && "grid grid-cols-[90px_1fr_90px]",
         variant === "pictos" && "grid grid-cols-[80px_1fr_80px]",
-        // completed && "shadow-[inset_0_0_22px_2px_rgba(255,215,0,0.3)]",
+        completed && "shadow-[inset_0_0_15px_2px_rgba(255,215,0,0.2)]",
         completed && "border-white/50",
         className
       )}

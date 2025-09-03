@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
 import "./globals.css";
 import { Confetti } from "./components/Index";
+import backgroundImage from "/public/images/backgrounds/maelle-bg.jpg";
+import Image from "next/image";
 
 const spectral = Spectral({
   subsets: ["latin"],
@@ -22,7 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spectral.className} antialiased`}>
+        <div className="fixed left-1/2 -translate-x-1/2 top-0 h-[1500px] w-full bg-black/70">
+          <Image
+            src={backgroundImage}
+            alt="Background"
+            fill
+            className="object-contain opacity-70 mt-[48px]"
+          />
+        </div>
         <Confetti />
+
         {children}
       </body>
     </html>

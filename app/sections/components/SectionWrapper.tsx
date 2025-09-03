@@ -9,6 +9,7 @@ const SectionWrapper = ({
   total,
   containerClasses,
   numberCompleted,
+  barClassName,
 }: {
   children: ReactNode;
   title: string;
@@ -16,6 +17,7 @@ const SectionWrapper = ({
   total: number;
   containerClasses?: string;
   numberCompleted: number;
+  barClassName?: string;
 }) => {
   return (
     <div className="p-8 rounded-md flex flex-col gap-4 bg-dark-gray/75">
@@ -24,6 +26,7 @@ const SectionWrapper = ({
         details={details}
         total={total}
         numberCompleted={numberCompleted}
+        barClassName={barClassName}
       />
       <div className={cn("flex flex-col", containerClasses)}>{children}</div>
     </div>

@@ -33,7 +33,7 @@ export default function Confetti() {
         speed: { min: 1, max: 3 },
       },
       number: {
-        value: 250,
+        value: 100,
         density: { enable: true },
       },
       opacity: {
@@ -62,10 +62,10 @@ export default function Confetti() {
       shape: {
         type: ["circle", "square", "polygon"],
         options: {
-          polygon: [{ sides: 5 }, { sides: 6 }],
+          polygon: [{ sides: 4 }, { sides: 6 }],
         },
       },
-      size: { value: { min: 2, max: 4 } },
+      size: { value: { min: 2, max: 6 } },
       roll: {
         darken: { enable: true, value: 30 },
         enlighten: { enable: true, value: 30 },
