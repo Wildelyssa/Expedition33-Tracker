@@ -2,8 +2,9 @@
 import { getCompletedCount } from "@/app/lib/lib";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
-import { IJournal, journals } from "../data/progressData";
+import { journals } from "../data/progressData";
 import { useState } from "react";
+import { IJournal } from "../types/types";
 
 const Journals = ({
   title,

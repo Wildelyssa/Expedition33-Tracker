@@ -1,171 +1,4 @@
-const sectionIds = ["locations", "journals", "weapons", "pictos"] as const;
-
-export type SectionId = (typeof sectionIds)[number];
-
-export type ISectionDetails = {
-  id: string;
-  text: string;
-};
-
-function createSection(id: SectionId): ISectionDetails {
-  return {
-    id,
-    text: id.charAt(0).toUpperCase() + id.slice(1),
-  };
-}
-
-export const sections: ISectionDetails[] = sectionIds.map(createSection);
-
-// to do=> make a generic ProgressItem type with id, completed and name and extend other types as needed
-// to do=> consolidate types a bit more to avoid repetition
-// to do=> add necessary hardcoded data such as names then map in initial completed and id for ease of updates
-
-export type IProgressArray = (
-  | IPrimaryLocation
-  | ISubLocation
-  | IPictos
-  | IWeapon
-  | IJournal
-)[];
-
-export type IProgressName =
-  | IPrimaryLocation["name"]
-  | ISubLocation["name"]
-  | IJournal["name"]
-  | IWeapon["name"]
-  | IPictos["name"];
-
-export type IPrimaryLocation = {
-  id: string;
-  name: IPrimaryLocations;
-  completed: boolean;
-};
-
-export type ISubLocation = {
-  id: string;
-  name: ISubLocations;
-  completed: boolean;
-};
-
-export type IPrimaryLocations =
-  | "Lumiere"
-  | "Spring Meadows"
-  | "Flying Waters"
-  | "Ancient Sanctuary"
-  | "Gestral Village"
-  | `Esquie's Nest`
-  | "Stone Wall Cliffs"
-  | "Forgotten BattleField"
-  | `Monoco's Station`
-  | "Old Lumiere"
-  | "Visages"
-  | "Sirene"
-  | "The Monolith"
-  | "The Manor";
-
-export type ISubLocations =
-  | "Abbest Cave"
-  | "Ancient Gestral City"
-  | `Blade's Graveyard`
-  | "Coastal Cave"
-  | "Crimson Forest"
-  | "Crushing Cavern"
-  | "Dark Gestral Arena"
-  | "Dark Shores"
-  | "Endless Night Sanctuary"
-  | "Endless Tower"
-  | "Esoteric Ruins"
-  | "Falling Leaves"
-  | "Floating Cemetary"
-  | "Flying Casino"
-  | "Flying Manor"
-  | "Frozen Hearts"
-  | "Gestral Beach"
-  | "Hidden Gestral Arena"
-  | "Isle Of The Eyes"
-  | "Lost Woods"
-  | "Painting Workshop"
-  | "Red Woods"
-  | `Renoir's Den`
-  | "Sacred River"
-  | "Sinister Cave"
-  | "Sirene's Dress"
-  | "Sky Island"
-  | "Stone Quarry"
-  | "Stone Wave Cliffs Cave"
-  | "Sunless Cliffs"
-  | "The Abyss"
-  | "The Canvas"
-  | "The Carousel"
-  | "The Chosen Path"
-  | "The Crows"
-  | "The Fountain"
-  | "The Meadows"
-  | "The Reacher"
-  | "The Small Bourgeon"
-  | "Twilight Quarry"
-  | "White Sands"
-  | "White Tree"
-  | "Yellow Harvest";
-
-export type ILocationsMap = {
-  primary: IPrimaryLocation[];
-  sub: ISubLocation[];
-};
-
-export type IJournal = {
-  id: string;
-  name: IJournals;
-  completed: boolean;
-};
-
-export type IJournals =
-  | "Renoir"
-  | "Simon"
-  | "Survivor"
-  | "Verso"
-  | "Julie"
-  | "Aline"
-  | "34"
-  | "35"
-  | "36"
-  | "37"
-  | "38"
-  | "39"
-  | "40"
-  | "41"
-  | "42"
-  | "43"
-  | "44"
-  | "45"
-  | "46"
-  | "47"
-  | "48"
-  | "49"
-  | "50"
-  | "51"
-  | "52"
-  | "53"
-  | "54"
-  | "55"
-  | "56"
-  | "57"
-  | "58"
-  | "59"
-  | "60"
-  | "61"
-  | "62"
-  | "63"
-  | "64"
-  | "65"
-  | "66"
-  | "67"
-  | "68"
-  | "69"
-  | "70"
-  | "78"
-  | "81"
-  | "84";
+import { IJournal, ILocationsMap, IPictos, IWeaponsMap } from "../types/types";
 
 export const expeditionLocations: ILocationsMap = {
   primary: [
@@ -526,24 +359,6 @@ export const journals: IJournal[] = [
   { name: "81", id: `journal${Math.random().toString(14)}`, completed: false },
   { name: "84", id: `journal${Math.random().toString(14)}`, completed: false },
 ];
-
-export type IWeapon = {
-  name: string;
-  element: string;
-  id: string;
-  completed: boolean;
-};
-
-export type CharacterKey =
-  | "verso-gustave"
-  | "lune"
-  | "sciel"
-  | "maelle"
-  | "monoco";
-
-export type IWeaponsMap = {
-  [key in CharacterKey]: IWeapon[];
-};
 
 export const weapons: IWeaponsMap = {
   "verso-gustave": [
@@ -1162,13 +977,6 @@ export const weapons: IWeaponsMap = {
       completed: false,
     },
   ],
-};
-
-export type IPictos = {
-  id: string;
-  name: string;
-  description: string;
-  completed: boolean;
 };
 
 export const pictos: IPictos[] = [
@@ -2358,7 +2166,7 @@ export const pictos: IPictos[] = [
   },
 ];
 
-// totals=> drop totals into a reusable hook?
+// totals=> drop totals into a reusable hook
 export const totals = {
   locations: {
     primary: expeditionLocations.primary.length,
@@ -2371,6 +2179,12 @@ export const totals = {
     maelle: weapons.maelle.length,
     monoco: weapons.monoco.length,
     sciel: weapons.sciel.length,
+    allWeaponsTotal:
+      weapons["verso-gustave"].length +
+      weapons.lune.length +
+      weapons.maelle.length +
+      weapons.monoco.length +
+      weapons.sciel.length,
   },
   pictos: pictos.length,
 };

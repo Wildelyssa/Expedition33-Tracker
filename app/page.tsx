@@ -28,7 +28,11 @@ export default function Home() {
             details="Total number of Pictos Found"
             total={totals.pictos}
           />
-          <Weapons title="Weapons" details="Total Weapons Found" total={1} />
+          <Weapons
+            title="Weapons"
+            details="Total Weapons Found"
+            total={totals.weapons.allWeaponsTotal}
+          />
         </div>
       </main>
 

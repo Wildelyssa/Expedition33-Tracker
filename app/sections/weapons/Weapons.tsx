@@ -2,11 +2,12 @@
 
 import SectionWrapper from "../components/SectionWrapper";
 import ProgressComponent from "../components/progress/ProgressComponent";
-import { CharacterKey, IWeaponsMap, weapons } from "../data/progressData";
+import { weapons } from "../data/progressData";
 import { capitalize } from "@/app/lib/display";
 import { useState } from "react";
 import { getCompletedCount } from "@/app/lib/lib";
 import SubHeaderWithCount from "../components/progress/SubHeaderWithCount";
+import { CharacterKey, IWeaponsMap } from "../types/types";
 
 const Weapons = ({
   title,

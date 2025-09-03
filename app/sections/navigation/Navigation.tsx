@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { sections } from "../data/progressData";
 import NavItem from "./NavItem";
+import { sections } from "../types/types";
 
 const Navigation = () => {
   return (

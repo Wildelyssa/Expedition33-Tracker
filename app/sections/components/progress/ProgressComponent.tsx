@@ -2,7 +2,8 @@ import { cn } from "@/app/lib/utils";
 import Image from "next/image";
 import { Prose, Text } from "@/app/components/Index";
 import CheckMark from "./CheckMark";
-import { IProgressName } from "../../data/progressData";
+import { IProgressName } from "../../types/types";
+
 // to do => add conditional styling per category- consider separating out the component if it becomes too complex
 
 const ProgressComponent = ({

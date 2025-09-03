@@ -1,7 +1,8 @@
 import { Heading, ProgressBar } from "@/app/components/Index";
-import { IProgressArray } from "../../data/progressData";
+
 import Count from "../Count";
 import { getCompletedCount } from "@/app/lib/lib";
+import { IProgressArray } from "../../types/types";
 
 const SubHeaderWithCount = ({
   title,

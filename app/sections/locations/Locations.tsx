@@ -1,14 +1,11 @@
 "use client";
 import SectionWrapper from "../components/SectionWrapper";
-import {
-  expeditionLocations,
-  IPrimaryLocation,
-  ISubLocation,
-} from "../data/progressData";
+import { expeditionLocations } from "../data/progressData";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import { useState } from "react";
 import { getCompletedCount } from "@/app/lib/lib";
 import SubHeaderWithCount from "../components/progress/SubHeaderWithCount";
+import { IPrimaryLocation, ISubLocation } from "../types/types";
 
 // to do=> streamline the code in this section to avoid repetition- maybe as per weapons section for consistency
 

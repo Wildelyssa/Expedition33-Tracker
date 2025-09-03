@@ -3,8 +3,9 @@
 import { useState } from "react";
 import ProgressComponent from "../components/progress/ProgressComponent";
 import SectionWrapper from "../components/SectionWrapper";
-import { IPictos, pictos } from "../data/progressData";
+import { pictos } from "../data/progressData";
 import { getCompletedCount } from "@/app/lib/lib";
+import { IPictos } from "../types/types";
 
 const Pictos = ({
   title,
